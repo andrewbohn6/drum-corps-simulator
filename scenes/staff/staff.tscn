@@ -1,0 +1,108 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/staff.gd" id="1"]
+[ext_resource type="Theme" path="res://themes/game_theme.tres" id="2"]
+
+[node name="Staff" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2")
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.027, 0.043, 0.071, 1)
+
+[node name="Page" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 48.0
+offset_right = -64.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="Page"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Header" type="HBoxContainer" parent="Page/Layout"]
+layout_mode = 2
+
+[node name="Titles" type="VBoxContainer" parent="Page/Layout/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CorpsNameLabel" type="Label" parent="Page/Layout/Header/Titles"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.271, 0.839, 0.71, 1)
+text = "CORPS NAME"
+
+[node name="Title" type="Label" parent="Page/Layout/Header/Titles"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Staff Management"
+
+[node name="ReturnButton" type="Button" parent="Page/Layout/Header"]
+layout_mode = 2
+text = "Return to Dashboard"
+
+[node name="AccentRule" type="ColorRect" parent="Page/Layout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+color = Color(0.957, 0.722, 0.376, 1)
+
+[node name="StaffPanel" type="PanelContainer" parent="Page/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Content" type="VBoxContainer" parent="Page/Layout/StaffPanel"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 18
+
+[node name="EmptyTitle" type="Label" parent="Page/Layout/StaffPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "No staff hired."
+horizontal_alignment = 1
+
+[node name="EmptyBody" type="Label" parent="Page/Layout/StaffPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.52, 0.61, 0.71, 1)
+text = "Your instructional and administrative team will appear here."
+horizontal_alignment = 1
+
+[node name="HireStaffButton" type="Button" parent="Page/Layout/StaffPanel/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Hire Staff"
+
+[node name="StatusLabel" type="Label" parent="Page/Layout/StaffPanel/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.957, 0.722, 0.376, 1)
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Page/Layout/Header/ReturnButton" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="Page/Layout/StaffPanel/Content/HireStaffButton" to="." method="_on_hire_staff_pressed"]
+

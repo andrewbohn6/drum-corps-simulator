@@ -2,16 +2,20 @@
 
 A long-term drum corps management game built with Godot 4 and GDScript.
 
-## Version 0.1.0
+## Version 0.2.0 — Founding Your Corps
 
-This foundation release includes:
+This release includes:
 
 - A polished main menu
 - Corps creation with identity and color selection
-- A placeholder management dashboard
+- Four distinct founding philosophies
+- An organization approval and starting-profile flow
+- A dynamic management dashboard with objectives and news
+- A safe first Staff screen
+- Runtime career state and a future-ready `SaveData` resource
 - A shared UI theme and maintainable scene-based architecture
 
-Simulation systems are intentionally out of scope for this release.
+Simulation and save/load systems remain intentionally out of scope.
 
 ## Running the project
 
@@ -25,7 +29,7 @@ Simulation systems are intentionally out of scope for this release.
 assets/          Project artwork and icons
 scenes/          Godot scenes grouped by feature
 scripts/core/    Cross-scene application state
+scripts/data/    Serialization-ready data resources
 scripts/ui/      Scene-specific presentation logic
 themes/          Shared UI theme resources
 ```
-

@@ -61,7 +61,7 @@ theme_override_constants/separation = 12
 layout_mode = 2
 theme_override_colors/font_color = Color(0.271, 0.839, 0.71, 1)
 theme_override_font_sizes/font_size = 18
-text = "FRONT OFFICE • VERSION 0.1.0"
+text = "FRONT OFFICE • VERSION 0.2.0"
 
 [node name="Title" type="Label" parent="Content/Columns/Brand"]
 layout_mode = 2
@@ -143,4 +143,3 @@ autowrap_mode = 2
 [connection signal="pressed" from="Content/Columns/MenuPanel/Margin/Menu/LoadGameButton" to="." method="_on_load_game_pressed"]
 [connection signal="pressed" from="Content/Columns/MenuPanel/Margin/Menu/SettingsButton" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Content/Columns/MenuPanel/Margin/Menu/QuitButton" to="." method="_on_quit_pressed"]
-

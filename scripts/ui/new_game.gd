@@ -1,7 +1,7 @@
 extends Control
 
 const MAIN_MENU_SCENE := "res://scenes/main_menu/main_menu.tscn"
-const DASHBOARD_SCENE := "res://scenes/dashboard/dashboard.tscn"
+const PHILOSOPHY_SCENE := "res://scenes/founding_philosophy/founding_philosophy.tscn"
 
 @onready var corps_name_field: LineEdit = %CorpsNameField
 @onready var home_city_field: LineEdit = %HomeCityField
@@ -30,16 +30,15 @@ func _on_create_corps_pressed() -> void:
 		validation_label.text = "Please enter your %s." % ", ".join(missing_fields)
 		return
 
-	GameSession.create_corps(
+	GameSession.begin_corps_creation(
 		corps_name_field.text,
 		home_city_field.text,
 		home_state_field.text,
 		primary_color_picker.color,
 		secondary_color_picker.color
 	)
-	get_tree().change_scene_to_file(DASHBOARD_SCENE)
+	get_tree().change_scene_to_file(PHILOSOPHY_SCENE)
 
 
 func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file(MAIN_MENU_SCENE)
-
