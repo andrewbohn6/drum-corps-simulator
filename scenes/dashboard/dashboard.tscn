@@ -1,0 +1,270 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/dashboard.gd" id="1"]
+[ext_resource type="Theme" path="res://themes/game_theme.tres" id="2"]
+
+[node name="Dashboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2")
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.027, 0.043, 0.071, 1)
+
+[node name="Page" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = 36.0
+offset_right = -48.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="Page"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TopBar" type="HBoxContainer" parent="Page/Layout"]
+layout_mode = 2
+
+[node name="Brand" type="VBoxContainer" parent="Page/Layout/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CorpsNameLabel" type="Label" parent="Page/Layout/TopBar/Brand"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
+theme_override_font_sizes/font_size = 36
+text = "New Horizons"
+
+[node name="LocationLabel" type="Label" parent="Page/Layout/TopBar/Brand"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.52, 0.61, 0.71, 1)
+text = "Madison, Wisconsin"
+
+[node name="Colors" type="HBoxContainer" parent="Page/Layout/TopBar"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 8
+
+[node name="PrimarySwatch" type="ColorRect" parent="Page/Layout/TopBar/Colors"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+color = Color(0.122, 0.435, 0.922, 1)
+
+[node name="SecondarySwatch" type="ColorRect" parent="Page/Layout/TopBar/Colors"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+color = Color(0.957, 0.722, 0.376, 1)
+
+[node name="MainMenuButton" type="Button" parent="Page/Layout/TopBar"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="Body" type="HBoxContainer" parent="Page/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Sidebar" type="PanelContainer" parent="Page/Layout/Body"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Page/Layout/Body/Sidebar"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 24
+
+[node name="Navigation" type="VBoxContainer" parent="Page/Layout/Body/Sidebar/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Heading" type="Label" parent="Page/Layout/Body/Sidebar/Margin/Navigation"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.271, 0.839, 0.71, 1)
+theme_override_font_sizes/font_size = 14
+text = "CORPS OPERATIONS"
+
+[node name="RecruitingButton" type="Button" parent="Page/Layout/Body/Sidebar/Margin/Navigation"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Recruiting"
+
+[node name="StaffButton" type="Button" parent="Page/Layout/Body/Sidebar/Margin/Navigation"]
+layout_mode = 2
+text = "Staff"
+
+[node name="FinancesButton" type="Button" parent="Page/Layout/Body/Sidebar/Margin/Navigation"]
+layout_mode = 2
+text = "Finances"
+
+[node name="ShowDesignButton" type="Button" parent="Page/Layout/Body/Sidebar/Margin/Navigation"]
+layout_mode = 2
+text = "Show Design"
+
+[node name="CalendarButton" type="Button" parent="Page/Layout/Body/Sidebar/Margin/Navigation"]
+layout_mode = 2
+text = "Calendar"
+
+[node name="DashboardContent" type="VBoxContainer" parent="Page/Layout/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="SectionHeader" type="HBoxContainer" parent="Page/Layout/Body/DashboardContent"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Page/Layout/Body/DashboardContent/SectionHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "Executive Dashboard"
+
+[node name="Date" type="Label" parent="Page/Layout/Body/DashboardContent/SectionHeader"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.957, 0.722, 0.376, 1)
+text = "JANUARY 1, 2026"
+
+[node name="Stats" type="GridContainer" parent="Page/Layout/Body/DashboardContent"]
+layout_mode = 2
+theme_override_constants/h_separation = 14
+theme_override_constants/v_separation = 14
+columns = 4
+
+[node name="Money" type="PanelContainer" parent="Page/Layout/Body/DashboardContent/Stats"]
+custom_minimum_size = Vector2(190, 120)
+layout_mode = 2
+
+[node name="Content" type="VBoxContainer" parent="Page/Layout/Body/DashboardContent/Stats/Money"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Page/Layout/Body/DashboardContent/Stats/Money/Content"]
+layout_mode = 2
+text = "MONEY"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="Page/Layout/Body/DashboardContent/Stats/Money/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.271, 0.839, 0.71, 1)
+theme_override_font_sizes/font_size = 28
+text = "$250,000"
+horizontal_alignment = 1
+
+[node name="Members" type="PanelContainer" parent="Page/Layout/Body/DashboardContent/Stats"]
+custom_minimum_size = Vector2(190, 120)
+layout_mode = 2
+
+[node name="Content" type="VBoxContainer" parent="Page/Layout/Body/DashboardContent/Stats/Members"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Page/Layout/Body/DashboardContent/Stats/Members/Content"]
+layout_mode = 2
+text = "MEMBERS"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="Page/Layout/Body/DashboardContent/Stats/Members/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "0 / 165"
+horizontal_alignment = 1
+
+[node name="Staff" type="PanelContainer" parent="Page/Layout/Body/DashboardContent/Stats"]
+custom_minimum_size = Vector2(190, 120)
+layout_mode = 2
+
+[node name="Content" type="VBoxContainer" parent="Page/Layout/Body/DashboardContent/Stats/Staff"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Page/Layout/Body/DashboardContent/Stats/Staff/Content"]
+layout_mode = 2
+text = "STAFF"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="Page/Layout/Body/DashboardContent/Stats/Staff/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "0"
+horizontal_alignment = 1
+
+[node name="CurrentDate" type="PanelContainer" parent="Page/Layout/Body/DashboardContent/Stats"]
+custom_minimum_size = Vector2(190, 120)
+layout_mode = 2
+
+[node name="Content" type="VBoxContainer" parent="Page/Layout/Body/DashboardContent/Stats/CurrentDate"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Page/Layout/Body/DashboardContent/Stats/CurrentDate/Content"]
+layout_mode = 2
+text = "CURRENT DATE"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="Page/Layout/Body/DashboardContent/Stats/CurrentDate/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "Jan 1, 2026"
+horizontal_alignment = 1
+
+[node name="WelcomePanel" type="PanelContainer" parent="Page/Layout/Body/DashboardContent"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Content" type="VBoxContainer" parent="Page/Layout/Body/DashboardContent/WelcomePanel"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="Page/Layout/Body/DashboardContent/WelcomePanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "Your journey starts here."
+horizontal_alignment = 1
+
+[node name="Body" type="Label" parent="Page/Layout/Body/DashboardContent/WelcomePanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.52, 0.61, 0.71, 1)
+text = "Build your staff, recruit the membership, and design a show worthy of finals night."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="StatusLabel" type="Label" parent="Page/Layout/Body/DashboardContent/WelcomePanel/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.957, 0.722, 0.376, 1)
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Page/Layout/TopBar/MainMenuButton" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Page/Layout/Body/Sidebar/Margin/Navigation/RecruitingButton" to="." method="_on_section_pressed" binds= ["Recruiting"]]
+[connection signal="pressed" from="Page/Layout/Body/Sidebar/Margin/Navigation/StaffButton" to="." method="_on_section_pressed" binds= ["Staff"]]
+[connection signal="pressed" from="Page/Layout/Body/Sidebar/Margin/Navigation/FinancesButton" to="." method="_on_section_pressed" binds= ["Finances"]]
+[connection signal="pressed" from="Page/Layout/Body/Sidebar/Margin/Navigation/ShowDesignButton" to="." method="_on_section_pressed" binds= ["Show Design"]]
+[connection signal="pressed" from="Page/Layout/Body/Sidebar/Margin/Navigation/CalendarButton" to="." method="_on_section_pressed" binds= ["Calendar"]]
+

@@ -1,0 +1,177 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/new_game.gd" id="1"]
+[ext_resource type="Theme" path="res://themes/game_theme.tres" id="2"]
+
+[node name="NewGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2")
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.027, 0.043, 0.071, 1)
+
+[node name="Page" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 48.0
+offset_right = -64.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="Page"]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="Header" type="HBoxContainer" parent="Page/Layout"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="Page/Layout/Header"]
+layout_mode = 2
+text = "‹  Main Menu"
+
+[node name="HeaderSpacer" type="Control" parent="Page/Layout/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Step" type="Label" parent="Page/Layout/Header"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.271, 0.839, 0.71, 1)
+text = "NEW CAREER • CORPS IDENTITY"
+
+[node name="Title" type="Label" parent="Page/Layout"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
+theme_override_font_sizes/font_size = 42
+text = "Create Your Corps"
+
+[node name="Subtitle" type="Label" parent="Page/Layout"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.52, 0.61, 0.71, 1)
+theme_override_font_sizes/font_size = 20
+text = "Every dynasty begins with an identity. Choose yours."
+
+[node name="FormPanel" type="PanelContainer" parent="Page/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FormMargin" type="MarginContainer" parent="Page/Layout/FormPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 42
+theme_override_constants/margin_top = 34
+theme_override_constants/margin_right = 42
+theme_override_constants/margin_bottom = 34
+
+[node name="Form" type="VBoxContainer" parent="Page/Layout/FormPanel/FormMargin"]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="Fields" type="GridContainer" parent="Page/Layout/FormPanel/FormMargin/Form"]
+layout_mode = 2
+theme_override_constants/h_separation = 22
+theme_override_constants/v_separation = 14
+columns = 2
+
+[node name="CorpsNameLabel" type="Label" parent="Page/Layout/FormPanel/FormMargin/Form/Fields"]
+layout_mode = 2
+text = "Corps Name"
+
+[node name="CorpsNameField" type="LineEdit" parent="Page/Layout/FormPanel/FormMargin/Form/Fields"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(520, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "e.g. Great Lakes Vanguard"
+max_length = 50
+
+[node name="HomeCityLabel" type="Label" parent="Page/Layout/FormPanel/FormMargin/Form/Fields"]
+layout_mode = 2
+text = "Home City"
+
+[node name="HomeCityField" type="LineEdit" parent="Page/Layout/FormPanel/FormMargin/Form/Fields"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "e.g. Madison"
+max_length = 50
+
+[node name="HomeStateLabel" type="Label" parent="Page/Layout/FormPanel/FormMargin/Form/Fields"]
+layout_mode = 2
+text = "Home State"
+
+[node name="HomeStateField" type="LineEdit" parent="Page/Layout/FormPanel/FormMargin/Form/Fields"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "e.g. Wisconsin"
+max_length = 50
+
+[node name="Divider" type="HSeparator" parent="Page/Layout/FormPanel/FormMargin/Form"]
+layout_mode = 2
+
+[node name="ColorHeading" type="Label" parent="Page/Layout/FormPanel/FormMargin/Form"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "Visual Identity"
+
+[node name="Colors" type="HBoxContainer" parent="Page/Layout/FormPanel/FormMargin/Form"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="PrimaryGroup" type="VBoxContainer" parent="Page/Layout/FormPanel/FormMargin/Form/Colors"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Page/Layout/FormPanel/FormMargin/Form/Colors/PrimaryGroup"]
+layout_mode = 2
+text = "Primary Color"
+
+[node name="PrimaryColorPicker" type="ColorPickerButton" parent="Page/Layout/FormPanel/FormMargin/Form/Colors/PrimaryGroup"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+
+[node name="SecondaryGroup" type="VBoxContainer" parent="Page/Layout/FormPanel/FormMargin/Form/Colors"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Page/Layout/FormPanel/FormMargin/Form/Colors/SecondaryGroup"]
+layout_mode = 2
+text = "Secondary Color"
+
+[node name="SecondaryColorPicker" type="ColorPickerButton" parent="Page/Layout/FormPanel/FormMargin/Form/Colors/SecondaryGroup"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+
+[node name="Footer" type="HBoxContainer" parent="Page/Layout/FormPanel/FormMargin/Form"]
+layout_mode = 2
+
+[node name="ValidationLabel" type="Label" parent="Page/Layout/FormPanel/FormMargin/Form/Footer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.957, 0.722, 0.376, 1)
+
+[node name="CreateCorpsButton" type="Button" parent="Page/Layout/FormPanel/FormMargin/Form/Footer"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+text = "Create Corps  →"
+
+[connection signal="pressed" from="Page/Layout/Header/BackButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Page/Layout/FormPanel/FormMargin/Form/Footer/CreateCorpsButton" to="." method="_on_create_corps_pressed"]
+
