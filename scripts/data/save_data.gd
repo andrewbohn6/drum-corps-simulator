@@ -16,3 +16,6 @@ extends Resource
 @export var current_date: String = "January 1"
 @export var current_season: int = 2026
 @export var corps_philosophy: String = ""
+@export var available_staff: Array[StaffMember] = []
+@export var hired_staff: Array[StaffMember] = []
+@export var news_entries: Array[NewsEntry] = []

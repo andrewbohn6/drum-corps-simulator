@@ -3,13 +3,6 @@ extends Control
 const MAIN_MENU_SCENE := "res://scenes/main_menu/main_menu.tscn"
 const STAFF_SCENE := "res://scenes/staff/staff.tscn"
 
-const NEWS_ITEMS: Array[Dictionary] = [
-	{"headline": "Welcome to the Drum Corps Association.", "category": "ORGANIZATION"},
-	{"headline": "Begin hiring your instructional staff.", "category": "STAFF"},
-	{"headline": "No members have been recruited.", "category": "RECRUITING"}
-]
-
-
 func _ready() -> void:
 	%CorpsNameLabel.text = GameSession.corps_name
 	%LocationLabel.text = "%s, %s" % [GameSession.home_city, GameSession.home_state]
@@ -23,6 +16,7 @@ func _ready() -> void:
 	%StaffValue.text = str(GameSession.current_staff)
 	%ReputationValue.text = "%d STAR" % GameSession.corps_reputation
 	%PhilosophyValue.text = GameSession.corps_philosophy
+	%HireStaffCheck.button_pressed = GameSession.current_staff > 0
 	CorpsStyle.apply_panel_outline(%IdentityPanel, GameSession.primary_color)
 	CorpsStyle.apply_active_button(%StaffButton, GameSession.primary_color)
 	%AccentRule.color = GameSession.secondary_color
@@ -31,16 +25,17 @@ func _ready() -> void:
 
 
 func _populate_news_feed() -> void:
-	for item: Dictionary in NEWS_ITEMS:
+	for item: NewsEntry in GameSession.news_entries.slice(0, 4):
 		var entry := VBoxContainer.new()
 		entry.add_theme_constant_override("separation", 3)
 		var category := Label.new()
-		category.text = item["category"]
+		category.text = "%s  •  %s" % [item.category, item.date]
 		category.add_theme_color_override("font_color", GameSession.secondary_color)
 		category.add_theme_font_size_override("font_size", 12)
 		var headline := Label.new()
-		headline.text = item["headline"]
+		headline.text = item.title
 		headline.add_theme_font_size_override("font_size", 17)
+		headline.tooltip_text = item.body
 		entry.add_child(category)
 		entry.add_child(headline)
 		%NewsList.add_child(entry)
@@ -60,8 +55,8 @@ func _format_number(value: int) -> String:
 
 
 func _on_staff_pressed() -> void:
-	get_tree().change_scene_to_file(STAFF_SCENE)
+	SceneRouter.go_to(STAFF_SCENE)
 
 
 func _on_main_menu_pressed() -> void:
-	get_tree().change_scene_to_file(MAIN_MENU_SCENE)
+	SceneRouter.go_to(MAIN_MENU_SCENE)

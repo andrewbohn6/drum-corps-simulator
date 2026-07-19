@@ -1,0 +1,246 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/staff_profile.gd" id="1"]
+[ext_resource type="Theme" path="res://themes/game_theme.tres" id="2"]
+[ext_resource type="Script" path="res://scripts/ui/portrait_placeholder.gd" id="3"]
+
+[node name="StaffProfile" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2")
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.027, 0.043, 0.071, 1)
+
+[node name="Page" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 44.0
+offset_right = -64.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="Page"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Header" type="HBoxContainer" parent="Page/Layout"]
+layout_mode = 2
+
+[node name="Eyebrow" type="Label" parent="Page/Layout/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.271, 0.839, 0.71, 1)
+text = "STAFF MARKET  •  CANDIDATE PROFILE"
+
+[node name="BackButton" type="Button" parent="Page/Layout/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "‹  Back to Staff"
+
+[node name="AccentRule" type="ColorRect" parent="Page/Layout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="ProfilePanel" type="PanelContainer" parent="Page/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Columns" type="HBoxContainer" parent="Page/Layout/ProfilePanel"]
+layout_mode = 2
+theme_override_constants/separation = 34
+
+[node name="Identity" type="VBoxContainer" parent="Page/Layout/ProfilePanel/Columns"]
+custom_minimum_size = Vector2(410, 0)
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="Portrait" type="Control" parent="Page/Layout/ProfilePanel/Columns/Identity"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(210, 210)
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("3")
+
+[node name="NameLabel" type="Label" parent="Page/Layout/ProfilePanel/Columns/Identity"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Candidate Name"
+horizontal_alignment = 1
+
+[node name="CaptionLabel" type="Label" parent="Page/Layout/ProfilePanel/Columns/Identity"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.271, 0.839, 0.71, 1)
+text = "Caption"
+horizontal_alignment = 1
+
+[node name="AgeLabel" type="Label" parent="Page/Layout/ProfilePanel/Columns/Identity"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Age 30"
+horizontal_alignment = 1
+
+[node name="BiographyLabel" type="Label" parent="Page/Layout/ProfilePanel/Columns/Identity"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Biography"
+autowrap_mode = 2
+
+[node name="Details" type="VBoxContainer" parent="Page/Layout/ProfilePanel/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="OverallRow" type="HBoxContainer" parent="Page/Layout/ProfilePanel/Columns/Details"]
+layout_mode = 2
+[node name="Label" type="Label" parent="Page/Layout/ProfilePanel/Columns/Details/OverallRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 22
+text = "Overall Rating"
+[node name="OverallValue" type="Label" parent="Page/Layout/ProfilePanel/Columns/Details/OverallRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.957, 0.722, 0.376, 1)
+theme_override_font_sizes/font_size = 30
+text = "75"
+
+[node name="TeachingLabel" type="Label" parent="Page/Layout/ProfilePanel/Columns/Details"]
+layout_mode = 2
+text = "Teaching"
+[node name="TeachingBar" type="ProgressBar" parent="Page/Layout/ProfilePanel/Columns/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+show_percentage = false
+[node name="TeachingValue" type="Label" parent="Page/Layout/ProfilePanel/Columns/Details/TeachingBar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "50"
+horizontal_alignment = 2
+
+[node name="DesignLabel" type="Label" parent="Page/Layout/ProfilePanel/Columns/Details"]
+layout_mode = 2
+text = "Design"
+[node name="DesignBar" type="ProgressBar" parent="Page/Layout/ProfilePanel/Columns/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+show_percentage = false
+[node name="DesignValue" type="Label" parent="Page/Layout/ProfilePanel/Columns/Details/DesignBar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "50"
+horizontal_alignment = 2
+
+[node name="LeadershipLabel" type="Label" parent="Page/Layout/ProfilePanel/Columns/Details"]
+layout_mode = 2
+text = "Leadership"
+[node name="LeadershipBar" type="ProgressBar" parent="Page/Layout/ProfilePanel/Columns/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+show_percentage = false
+[node name="LeadershipValue" type="Label" parent="Page/Layout/ProfilePanel/Columns/Details/LeadershipBar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "50"
+horizontal_alignment = 2
+
+[node name="PotentialLabel" type="Label" parent="Page/Layout/ProfilePanel/Columns/Details"]
+layout_mode = 2
+text = "Potential"
+[node name="PotentialBar" type="ProgressBar" parent="Page/Layout/ProfilePanel/Columns/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+show_percentage = false
+[node name="PotentialValue" type="Label" parent="Page/Layout/ProfilePanel/Columns/Details/PotentialBar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "50"
+horizontal_alignment = 2
+
+[node name="EmployerLabel" type="Label" parent="Page/Layout/ProfilePanel/Columns/Details"]
+layout_mode = 2
+text = "CURRENT EMPLOYER"
+[node name="EmployerValue" type="Label" parent="Page/Layout/ProfilePanel/Columns/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Independent educator"
+
+[node name="PersonalityLabel" type="Label" parent="Page/Layout/ProfilePanel/Columns/Details"]
+layout_mode = 2
+text = "PERSONALITY"
+[node name="PersonalityValue" type="Label" parent="Page/Layout/ProfilePanel/Columns/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.271, 0.839, 0.71, 1)
+text = "Technical"
+[node name="PersonalityDescription" type="Label" parent="Page/Layout/ProfilePanel/Columns/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Personality description"
+autowrap_mode = 2
+
+[node name="SalaryValue" type="Label" parent="Page/Layout/ProfilePanel/Columns/Details"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.957, 0.722, 0.376, 1)
+theme_override_font_sizes/font_size = 20
+text = "$50,000 / season"
+
+[node name="Actions" type="HBoxContainer" parent="Page/Layout"]
+layout_mode = 2
+[node name="StatusLabel" type="Label" parent="Page/Layout/Actions"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.957, 0.722, 0.376, 1)
+[node name="HireButton" type="Button" parent="Page/Layout/Actions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "Hire"
+
+[connection signal="pressed" from="Page/Layout/Header/BackButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Page/Layout/Actions/HireButton" to="." method="_on_hire_pressed"]
+

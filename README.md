@@ -2,7 +2,7 @@
 
 A long-term drum corps management game built with Godot 4 and GDScript.
 
-## Version 0.2.0 — Founding Your Corps
+## Version 0.3.0 — Building the Staff
 
 This release includes:
 
@@ -10,9 +10,13 @@ This release includes:
 - Corps creation with identity and color selection
 - Four distinct founding philosophies
 - An organization approval and starting-profile flow
-- A dynamic management dashboard with objectives and news
-- A safe first Staff screen
-- Runtime career state and a future-ready `SaveData` resource
+- A procedural market of varied instructional candidates
+- Detailed staff profiles, attributes, personalities, and derived ratings
+- Budget-aware hiring and a persistent Current Staff roster
+- Resource-based news that reacts to staff appointments
+- A dynamic dashboard with hiring progress and generated headlines
+- Runtime career state and an expanded future-ready `SaveData` resource
+- Consistent fade transitions and generated silhouette portraits
 - A shared UI theme and maintainable scene-based architecture
 
 Simulation and save/load systems remain intentionally out of scope.

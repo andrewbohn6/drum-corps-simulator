@@ -10,7 +10,7 @@ func _ready() -> void:
 
 
 func _on_new_game_pressed() -> void:
-	get_tree().change_scene_to_file(NEW_GAME_SCENE)
+	SceneRouter.go_to(NEW_GAME_SCENE)
 
 
 func _on_load_game_pressed() -> void:
@@ -27,4 +27,3 @@ func _on_quit_pressed() -> void:
 
 func _show_coming_soon(message: String) -> void:
 	%StatusLabel.text = message
-

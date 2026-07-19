@@ -262,7 +262,8 @@ layout_mode = 2
 disabled = true
 button_pressed = true
 text = "Choose Philosophy"
-[node name="HireStaff" type="CheckBox" parent="Page/Layout/Body/Content/LowerPanels/ObjectivePanel/Objective"]
+[node name="HireStaffCheck" type="CheckBox" parent="Page/Layout/Body/Content/LowerPanels/ObjectivePanel/Objective"]
+unique_name_in_owner = true
 layout_mode = 2
 disabled = true
 text = "Hire Your First Staff Member"
@@ -292,4 +293,3 @@ theme_override_constants/separation = 15
 
 [connection signal="pressed" from="Page/Layout/TopBar/MainMenuButton" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="Page/Layout/Body/Sidebar/Navigation/StaffButton" to="." method="_on_staff_pressed"]
-

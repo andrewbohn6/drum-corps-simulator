@@ -39,8 +39,8 @@ func _on_continue_pressed() -> void:
 	if selected_philosophy.is_empty():
 		return
 	GameSession.found_corps(selected_philosophy)
-	get_tree().change_scene_to_file(STARTING_PROFILE_SCENE)
+	SceneRouter.go_to(STARTING_PROFILE_SCENE)
 
 
 func _on_back_pressed() -> void:
-	get_tree().change_scene_to_file(NEW_GAME_SCENE)
+	SceneRouter.go_to(NEW_GAME_SCENE)

@@ -37,8 +37,8 @@ func _on_create_corps_pressed() -> void:
 		primary_color_picker.color,
 		secondary_color_picker.color
 	)
-	get_tree().change_scene_to_file(PHILOSOPHY_SCENE)
+	SceneRouter.go_to(PHILOSOPHY_SCENE)
 
 
 func _on_back_pressed() -> void:
-	get_tree().change_scene_to_file(MAIN_MENU_SCENE)
+	SceneRouter.go_to(MAIN_MENU_SCENE)

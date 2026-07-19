@@ -28,4 +28,4 @@ func _format_number(value: int) -> String:
 
 
 func _on_continue_pressed() -> void:
-	get_tree().change_scene_to_file(DASHBOARD_SCENE)
+	SceneRouter.go_to(DASHBOARD_SCENE)
